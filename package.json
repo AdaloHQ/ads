@@ -1,0 +1,35 @@
+{
+  "name": "ads",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "adalo dev",
+    "build": "adalo build",
+    "login": "adalo login",
+    "publish": "adalo publish",
+    "start:local": "ADALO_DEV_SERVER=http://localhost:3035 yarn start",
+    "login:local": "ADALO_BACKEND_SERVER=http://localhost:8084 yarn run login"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16",
+    "react-native": "*"
+  },
+  "adalo": {
+    "displayName": "Ads",
+    "components": [
+      {
+        "name": "Ads",
+        "manifest": "./src/components/Ads/manifest.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@adalo/cli": "^0.0.31",
+    "react": "^16.5.2",
+    "react-art": "^16.6.0",
+    "react-dom": "^16.5.2",
+    "react-native-web": "^0.9.5"
+  }
+}
