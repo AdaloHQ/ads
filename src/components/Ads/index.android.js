@@ -26,6 +26,7 @@ class Ads extends Component {
 				<AdMobBanner
 					adSize={size}
 					adUnitID={adID}
+					onAdFailedToLoad={error => console.error(error)}
 				/>
 			</View>
 		)

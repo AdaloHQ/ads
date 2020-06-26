@@ -30,12 +30,12 @@ fs.readFile("AndroidManifest.xml", "utf-8", (err, data) => {
             console.log(err);
         }
        let json = result
-       json.manifest.application[0]['meta-data'][0]['$']['android:value'] = andAppID 
+       json.manifest.application[0]['meta-data'][0]['$']['android:value'] = appID 
         var builder = new xml2js.Builder();
         var xml = builder.buildObject(json);
 
         fs.writeFile("AndroidManifest.xml", xml, function(err, data) {
-        if (err) console.log("err");
+        if (err) console.log(err);
 
         console.log("successfully written our update xml to file");
         });
