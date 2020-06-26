@@ -6,4 +6,4 @@ export const components = {
   Ads
 }
 
-export const config = {"displayName":"Ads","name":"ads","version":"dev","components":[{"name":"Ads","displayName":"Ads","defaultWidth":160,"defaultHeight":24,"props":[{"name":"text","displayName":"Text","type":"text","default":"Happy Hacking"},{"name":"color","displayName":"Color","type":"color","default":"#00A898"}]}]}
+export const config = {"displayName":"Ads","iosInstallScript":"scripts/install_ios.js","androidInstallScript":"scripts/install_android.js","name":"ads","version":"dev","components":[{"name":"Ads","displayName":"Ads","defaultWidth":160,"defaultHeight":160,"props":[{"name":"size","displayName":"Size","type":"text","default":"banner","control":{"type":"menu","options":[{"label":"Standard","value":"banner"},{"label":"Large","value":"largeBanner"},{"label":"Medium Rectangle","value":"mediumRectangle"}]}},{"name":"iosAppID","displayName":"iOS App ID","type":"text"},{"name":"andAppID","displayName":"Android App ID","type":"text"},{"name":"iosAdID","displayName":"iOS Ad ID","type":"text"},{"name":"andAdID","displayName":"Android Ad ID","type":"text"}],"resizeX":true,"resizeY":true}]}

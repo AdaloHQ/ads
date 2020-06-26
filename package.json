@@ -23,7 +23,9 @@
         "name": "Ads",
         "manifest": "./src/components/Ads/manifest.json"
       }
-    ]
+    ],
+    "iosInstallScript": "scripts/install_ios.js",
+    "androidInstallScript": "scripts/install_android.js"
   },
   "devDependencies": {
     "@adalo/cli": "^0.0.31",
@@ -31,5 +33,11 @@
     "react-art": "^16.6.0",
     "react-dom": "^16.5.2",
     "react-native-web": "^0.9.5"
+  },
+  "dependencies": {
+    "obj-traverse": "^1.0.0",
+    "react-native-admob": "^2.0.0-beta.6",
+    "xml2js": "^0.4.23",
+    "xml2json": "^0.12.0"
   }
 }

@@ -1,20 +1,44 @@
 {
   "displayName": "Ads",
   "defaultWidth": 160,
-  "defaultHeight": 24,
+  "defaultHeight": 160,
   "components": "./index.js",
+  "resizeX": true,
+  "resizeY": true,
   "props": [
     {
-      "name": "text",
-      "displayName": "Text",
+      "name": "size",
+      "displayName": "Size",
       "type": "text",
-      "default": "Happy Hacking"
+      "default": "banner",
+      "control": {
+        "type": "menu",
+        "options": [
+          { "label": "Standard", "value": "banner" },
+          { "label": "Large", "value": "largeBanner" },
+          { "label": "Medium Rectangle", "value": "mediumRectangle" }
+        ]
+      }
     },
     {
-      "name": "color",
-      "displayName": "Color",
-      "type": "color",
-      "default": "#00A898"
+      "name": "iosAppID",
+      "displayName": "iOS App ID",
+      "type": "text"
+    },
+    {
+      "name": "andAppID",
+      "displayName": "Android App ID",
+      "type": "text"
+    },
+    {
+      "name": "iosAdID",
+      "displayName": "iOS Ad ID",
+      "type": "text"
+    },
+    {
+      "name": "andAdID",
+      "displayName": "Android Ad ID",
+      "type": "text"
     }
   ]
 }
