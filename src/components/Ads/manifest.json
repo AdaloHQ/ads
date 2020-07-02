@@ -23,22 +23,26 @@
     {
       "name": "iosAppID",
       "displayName": "iOS App ID",
-      "type": "text"
+      "type": "text",
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX"
     },
     {
       "name": "iosAdID",
       "displayName": "iOS Ad ID",
-      "type": "text"
+      "type": "text",
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
     },
     {
       "name": "andAppID",
       "displayName": "Android App ID",
-      "type": "text"
+      "type": "text",
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX"
     },
     {
       "name": "andAdID",
       "displayName": "Android Ad ID",
-      "type": "text"
+      "type": "text",
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
     }
   ]
 }
