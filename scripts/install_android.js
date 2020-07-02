@@ -6,7 +6,7 @@ let i = stringData.indexOf('"' + "andAppID" + '":')+12
 let string = '';
 while(i < stringData.indexOf('"' + "andAppID" + '":')+100){
     string+=stringData[i]
-    ++it
+    ++i
 }
 let andAppID = string.split('"')
 andAppID = andAppID[0]

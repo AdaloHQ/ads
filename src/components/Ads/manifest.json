@@ -1,10 +1,10 @@
 {
   "displayName": "Ads",
-  "defaultWidth": 160,
-  "defaultHeight": 160,
+  "defaultWidth": 320,
+  "defaultHeight": 50,
   "components": "./index.js",
-  "resizeX": true,
-  "resizeY": true,
+  "resizeX": false,
+  "resizeY": false,
   "props": [
     {
       "name": "size",
@@ -26,13 +26,13 @@
       "type": "text"
     },
     {
-      "name": "andAppID",
-      "displayName": "Android App ID",
+      "name": "iosAdID",
+      "displayName": "iOS Ad ID",
       "type": "text"
     },
     {
-      "name": "iosAdID",
-      "displayName": "iOS Ad ID",
+      "name": "andAppID",
+      "displayName": "Android App ID",
       "type": "text"
     },
     {
