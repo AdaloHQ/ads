@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, StyleSheet, Platform } from 'react-native';
+import { View, Image } from 'react-native';
 import * as stdAd from './adPics/stdAd.png'
 import * as largeAd from './adPics/largeAd.png'
 import * as recAd from './adPics/recAd.png'

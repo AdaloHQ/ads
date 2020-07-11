@@ -1,5 +1,5 @@
 {
-  "displayName": "Ads",
+  "displayName": "AdMob Banner",
   "defaultWidth": 320,
   "defaultHeight": 50,
   "components": "./index.js",
@@ -18,29 +18,30 @@
           { "label": "Large", "value": "largeBanner" },
           { "label": "Medium Rectangle", "value": "mediumRectangle" }
         ]
-      }
+      },
+      "helpText": "Please follow the [Instruction Guide](https://github.com/AdaloHQ/ads/blob/master/src/components/Ads/instructions.md)"
     },
     {
       "name": "iosAppID",
-      "displayName": "iOS App ID",
+      "displayName": "AdMob iOS App ID",
       "type": "text",
       "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX"
     },
     {
       "name": "iosAdID",
-      "displayName": "iOS Ad ID",
+      "displayName": "AdMob iOS Ad ID",
       "type": "text",
       "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
     },
     {
       "name": "andAppID",
-      "displayName": "Android App ID",
+      "displayName": "AdMob Android App ID",
       "type": "text",
       "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX"
     },
     {
       "name": "andAdID",
-      "displayName": "Android Ad ID",
+      "displayName": "AdMob Android Ad ID",
       "type": "text",
       "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
     }

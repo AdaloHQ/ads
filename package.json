@@ -17,7 +17,7 @@
     "react-native": "*"
   },
   "adalo": {
-    "displayName": "Ads",
+    "displayName": "AdMob Banner",
     "components": [
       {
         "name": "Ads",
