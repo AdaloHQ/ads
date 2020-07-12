@@ -24,7 +24,10 @@
         "manifest": "./src/components/Ads/manifest.json"
       }
     ],
-    "iosInstallScript": "scripts/install_ios.js",
+    "iosInstallScript": [   
+      "scripts/install_ios.sh",
+      "scripts/install_ios.js"
+    ],
     "androidInstallScript": "scripts/install_android.js"
   },
   "devDependencies": {
