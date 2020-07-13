@@ -1,0 +1,72 @@
+#!/bin/bash
+set -e
+set -x
+
+name=$PROJECT_NAME
+
+# AdMob Dependencies
+yarn add react-native-admob@^2.0.0-beta.6
+
+# install_android.js
+cd ../../../ads/scripts
+appID=$(node install_android.js)
+
+# build.gradle
+cd ../../packager/builds/AdaloApp/android/app
+
+# sed -i.bak '
+# /implementation "com.google.android.gms:play-services-base:16.1.0"/d
+# ' build.gradle
+
+# sed -i.bak '
+# /implementation "com.google.firebase:firebase-core:16.0.9"/d
+# ' build.gradle
+
+# sed -i.bak '
+# /implementation "com.google.firebase:firebase-messaging:18.0.0"/d
+# ' build.gradle
+
+sed -i.bak '/dependencies {/a\
+implementation "com.android.support:multidex:1.0.3"\
+implementation "com.google.android.gms:play-services-ads:19.2.0"\
+implementation "com.google.android.gms:play-services-base:17.3.0"\
+implementation "com.google.firebase:firebase-core:17.4.4"\
+implementation "com.google.firebase:firebase-messaging:20.2.3"
+' build.gradle
+
+sed -i.bak '/defaultConfig {/a\
+multiDexEnabled true
+' build.gradle
+
+# AndroidManifest
+cd src/main
+cat <<EOF > /tmp/adalo-sed
+/com.facebook.react.devsupport/a\\
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="${appID}"/>\\
+EOF
+
+sed -i.bak "$(cat /tmp/adalo-sed)" AndroidManifest.xml
+
+# MainActivity
+cd java/com/adaloapp
+
+sed -i.bak '/com.facebook.react.ReactActivity;/a\
+import android.os.Bundle;\
+import com.google.android.gms.ads.MobileAds;\
+import com.google.android.gms.ads.initialization.InitializationStatus;\
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+' MainActivity.java
+
+sed -i.bak '/public class MainActivity extends ReactActivity {/a\
+@Override\
+protected void onCreate(Bundle savedInstanceState) {\
+  super.onCreate(savedInstanceState);\
+  MobileAds.initialize(this, new OnInitializationCompleteListener() {\
+    @Override\
+    public void onInitializationComplete(InitializationStatus initializationStatus) {\
+    }\
+  });\
+}\
+' MainActivity.java
+
+echo "configured Android settings"

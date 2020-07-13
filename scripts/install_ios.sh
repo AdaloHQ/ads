@@ -4,6 +4,9 @@ set -x
 
 name=$PROJECT_NAME
 
+# install_ios.js
+node install_ios.js
+
 # Frameworks
 cp -R ../GoogleMobileAds.framework ../../template-app/ios
 
