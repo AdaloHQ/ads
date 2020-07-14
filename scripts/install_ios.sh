@@ -14,7 +14,7 @@ cp -R ../GoogleMobileAds.framework ../../template-app/ios
 cd ../../template-app
 
 yarn add react-native-admob@^2.0.0-beta.6
-# yarn add ads@../ads
+yarn add ads@../ads
 
 # Podfile
 cd ios
