@@ -2,17 +2,18 @@
 set -e
 set -x
 
-name=$PROJECT_NAME
+project_path=$(pwd) 
+dir=$(dirname "${0}")
+
+# install_android.js
+yarn add json-easy-filter --dev
+appID=$(${dir}/install_android.js $project_path)
 
 # AdMob Dependencies
 yarn add react-native-admob@^2.0.0-beta.6
 
-# install_android.js
-cd ../../../ads/scripts
-appID=$(node install_android.js)
-
 # build.gradle
-cd ../../packager/builds/AdaloApp/android/app
+cd android/app
 
 # sed -i.bak '
 # /implementation "com.google.android.gms:play-services-base:16.1.0"/d
@@ -50,7 +51,7 @@ sed -i.bak "$(cat /tmp/adalo-sed)" AndroidManifest.xml
 # MainActivity
 cd java/com/adaloapp
 
-sed -i.bak '/com.facebook.react.ReactActivity;/a\
+sed -i.bak '/ReactActivity;/a\
 import android.os.Bundle;\
 import com.google.android.gms.ads.MobileAds;\
 import com.google.android.gms.ads.initialization.InitializationStatus;\

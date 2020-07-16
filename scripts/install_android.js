@@ -1,47 +1,30 @@
-let fs = require('fs');
-let rawData = fs.readFileSync('../../packager/builds/AdaloApp/proton-bundle.json');
-let parsedData = JSON.parse(rawData);
-let stringData = JSON.stringify(parsedData);
-let i = stringData.indexOf('"' + "andAppID" + '":')+12
-let string = '';
-while(i < stringData.indexOf('"' + "andAppID" + '":')+100){
-    string+=stringData[i]
-    ++i
+#!/usr/bin/env node
+const JefNode = require('json-easy-filter').JefNode
+const [, , ...args] = process.argv
+if (args.length !== 1) {
+  console.error('Usage:\n\n node install_android.js [PROJECT_PATH]\n')
+  process.exit(1)
 }
-let andAppID = string.split('"')
-andAppID = andAppID[0]
-appID = andAppID.replace(/\s/g,'')
-console.log(appID)
+let project_path = args[0]
+let fs = require('fs');
+let rawData = fs.readFileSync(project_path + '/proton-bundle.json');
+let protonBundle = JSON.parse(rawData);
+let appID
+new JefNode(protonBundle).filter(node => {
+  if (node.key == 'andAppID') {
+    appID = node.value
+  }
+})
+let appIDFinal = appID.replace(/\s/g,'')
+console.log(appIDFinal)
 
-
-
-// try {
-//     process.chdir('../../packager/builds/AdaloApp/android/app/src/main');
-//     console.log('New directory: ' + process.cwd());
-// }
-// catch (err) {
-//     console.log('chdir: ' + err);
-// }
-
-// parseString = require("xml2js").parseString;
-// xml2js = require("xml2js");
-// fs.readFile("AndroidManifest.xml", "utf-8", (err, data) => {
-//     if (err) {
-//         console.log(err);
-//     }
-//     parseString(data, function(err, result) {
-//         if (err) {
-//             console.log(err);
-//         }
-//        let json = result
-//        json.manifest.application[0]['meta-data'][0]['$']['android:value'] = appID 
-//         var builder = new xml2js.Builder();
-//         var xml = builder.buildObject(json);
-
-//         fs.writeFile("AndroidManifest.xml", xml, function(err, data) {
-//         if (err) console.log(err);
-
-//         console.log("successfully written our update xml to file");
-//         });
-//       });
-// });
+// let JefNode = require('json-easy-filter').JefNode
+// const protonBundle = require('../../packager/builds/AdaloApp/proton-bundle.json')
+// let appID
+// new JefNode(protonBundle).filter(node => {
+//   if (node.key == 'andAppID') {
+//     appID = node.value
+//   }
+// })
+// let appIDFinal = appID.replace(/\s/g,'')
+// console.log(appIDFinal)
