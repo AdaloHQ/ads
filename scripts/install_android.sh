@@ -7,7 +7,7 @@ dir=$(dirname "${0}")
 
 # install_android.js
 yarn add json-easy-filter --dev
-appID=$(${dir}/install_android.js $project_path)
+appID=$(${dir}/parseJSON.js $project_path andAppID)
 
 # AdMob Dependencies
 yarn add react-native-admob@^2.0.0-beta.6

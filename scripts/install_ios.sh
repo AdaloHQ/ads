@@ -8,7 +8,7 @@ dir=$(dirname "${0}")
 
 # install_ios.js
 yarn add json-easy-filter --dev
-appID=$(${dir}/install_ios.js $project_path)
+appID=$(${dir}/parseJSON.js $project_path iosAppID)
 
 # Frameworks
 cp -R ${dir}/GoogleMobileAds.framework ../ios
