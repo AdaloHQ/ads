@@ -6,15 +6,15 @@ project_path=$(pwd)
 name=$PROJECT_NAME 
 dir=$(dirname "${0}")
 
-# install_ios.js
+# parseJSON.js
 yarn add json-easy-filter --dev
 appID=$(${dir}/parseJSON.js $project_path iosAppID)
 
-# Frameworks
-cp -R ${dir}/GoogleMobileAds.framework ../ios
-
 # AdMob Dependencies
 yarn add react-native-admob@^2.0.0-beta.6
+
+# Frameworks
+cp -R ${dir}/GoogleMobileAds.framework ../ios
 
 # Podfile
 cd ios
@@ -39,7 +39,6 @@ sed -i.bak '/UserNotifications.h/a\
 
 
 # info.plist
-plutil -remove GADApplicationIdentifier info.plist
 plutil -insert GADApplicationIdentifier -string $appID info.plist
 
 # echo "configured iOS settings"
