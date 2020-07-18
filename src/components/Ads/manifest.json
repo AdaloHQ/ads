@@ -19,7 +19,7 @@
           { "label": "Medium Rectangle", "value": "mediumRectangle" }
         ]
       },
-      "helpText": "Learn More about [Configuring the Admob Component](https://github.com/AdaloHQ/ads/blob/master/src/components/Ads/instructions.md)"
+      "helpText": "Learn More about [Configuring the Admob Component](https://help.adalo.com/component-basics/google-admob)"
     },
     {
       "name": "iosAppID",
