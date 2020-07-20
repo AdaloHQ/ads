@@ -1,6 +1,6 @@
 {
   "name": "ads",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "author": "Adalo",
   "license": "MIT",
   "main": "index.js",
@@ -10,11 +10,9 @@
     "build": "adalo build",
     "login": "adalo login",
     "publish": "adalo publish",
-    "start:local": "ADALO_DEV_SERVER=http://localhost:3035 yarn start",
-    "login:local": "ADALO_BACKEND_SERVER=http://localhost:8084 yarn run login",
-    "publish:local": "REGISTRY_URL=http://localhost:8000 yarn run publish",
-    "deploy": "adalo deploy",
-    "deploy:local": "REGISTRY_URL=http://localhost:8000 yarn run deploy"
+    "start:local": "yarn start --local",
+    "login:local": "yarn run login --local",
+    "publish:local": "yarn run publish --local"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -29,11 +27,11 @@
         "manifest": "./src/components/Ads/manifest.json"
       }
     ],
-    "iosInstallScript": "scripts/install_ios.sh",
-    "androidInstallScript": "scripts/install_android.sh"
+    "iosInstallScript": "./scripts/install_ios.sh",
+    "androidInstallScript": "./scripts/install_android.sh"
   },
   "devDependencies": {
-    "@adalo/cli": "^0.0.37",
+    "@adalo/cli": "^0.0.38",
     "react": "^16.5.2",
     "react-art": "^16.6.0",
     "react-dom": "^16.5.2",
