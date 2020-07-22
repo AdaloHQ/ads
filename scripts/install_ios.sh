@@ -14,7 +14,14 @@ appID=$(${dir}/parseJSON.js $project_path iosAppID)
 yarn add react-native-admob@^2.0.0-beta.6
 
 # Frameworks
-cp -R ${dir}/GoogleMobileAds.framework ios
+curl https://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip -O -J -L
+unzip googlemobileadssdkios.zip
+for direct in */; do
+  if [[ $direct = Google* ]];
+  then
+    cp -R $direct/GoogleMobileAds.framework ios/GoogleMobileAds.framework
+  fi;
+done
 
 # Podfile
 cd ios
