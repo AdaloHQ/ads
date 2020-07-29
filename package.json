@@ -1,5 +1,5 @@
 {
-  "name": "ads",
+  "name": "@adalo/ads",
   "version": "1.0.0",
   "author": "Adalo",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "react-native": "*"
   },
   "adalo": {
-    "logo": "./logo.png",
+    "logo": "./AdMob-logo.png",
     "displayName": "AdMob Banner",
     "components": [
       {

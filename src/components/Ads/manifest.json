@@ -3,7 +3,7 @@
   "defaultWidth": 320,
   "defaultHeight": 50,
   "components": "./index.js",
-  "icon": "./icon.png",
+  "icon": "./AdMob-Thumbnail.png",
   "resizeX": false,
   "resizeY": false,
   "props": [
