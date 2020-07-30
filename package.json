@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-  "name": "ads",
+  "name": "@adalo-components/ads",
   "version": "1.0.1",
-=======
-  "name": "@adalo/ads",
-  "version": "1.0.0",
->>>>>>> 91abdec7dbb0bc2073509d25bced2ad28ed1ab3f
   "author": "Adalo",
   "license": "MIT",
   "main": "index.js",
