@@ -2,6 +2,13 @@
 set -e
 set -x
 
+if [[ $# -ne 1 ]]; then
+  echo "Usage: ./install_android.sh BUNDLE_ID"
+  exit 1
+fi
+
+bundleId=$1
+
 project_path=$(pwd) 
 dir=$(dirname "${0}")
 
@@ -48,8 +55,11 @@ EOF
 
 sed -i.bak "$(cat /tmp/adalo-sed)" AndroidManifest.xml
 
+echo $bundleId
+app_path=$(echo ${bundleId} | sed -e 's/\./\//g')
+
 # MainActivity
-cd java/com/adaloapp
+cd java/$app_path
 
 sed -i.bak '/ReactActivity;/a\
 import android.os.Bundle;\
