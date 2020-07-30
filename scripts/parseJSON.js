@@ -2,25 +2,21 @@
 const JefNode = require('json-easy-filter').JefNode
 const [, , ...args] = process.argv
 if (args.length !== 2) {
-  console.error(
-    'Usage:\n\n node install_android.js [PROJECT_PATH] [PLATFORM_ID]\n'
-  )
+  console.error('Usage:\n\n node install_android.js [PROJECT_PATH] [PLATFORM_ID]\n')
   process.exit(1)
 }
 let project_path = args[0]
 let platform_id = args[1]
-// let fs = require('fs');
-// let rawData = fs.readFileSync(project_path + '/proton-bundle.json');
-// let protonBundle = JSON.parse(rawData);
-let protonBundle = require(project_path, '/proton-bundle.json')
+let fs = require('fs');
+let rawData = fs.readFileSync(project_path + '/proton-bundle.json');
+let protonBundle = JSON.parse(rawData);
 let appID
-
-new JefNode(protonBundle).filter((node) => {
+new JefNode(protonBundle).filter(node => {
   if (node.key == platform_id) {
     appID = node.value
   }
 })
-let appIDFinal = appID.replace(/\s/g, '')
+let appIDFinal = appID.replace(/\s/g,'')
 console.log(appIDFinal)
 
 // local testing
