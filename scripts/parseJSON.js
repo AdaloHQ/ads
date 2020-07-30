@@ -14,7 +14,7 @@ let platform_id = args[1]
 // let protonBundle = JSON.parse(rawData);
 let protonBundle = require(project_path, '/proton-bundle.json')
 let appID
-console.log(protonBundle)
+
 new JefNode(protonBundle).filter((node) => {
   if (node.key == platform_id) {
     appID = node.value
