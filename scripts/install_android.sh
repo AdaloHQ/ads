@@ -48,8 +48,11 @@ EOF
 
 sed -i.bak "$(cat /tmp/adalo-sed)" AndroidManifest.xml
 
+echo $BUNDLE_ID
+app_path=$(echo ${BUNDLE_ID} | sed -e 's/\./\//g')
+
 # MainActivity
-cd java/com/adaloapp
+cd java/$app_path
 
 sed -i.bak '/ReactActivity;/a\
 import android.os.Bundle;\
