@@ -15,9 +15,18 @@
       "control": {
         "type": "menu",
         "options": [
-          { "label": "Standard", "value": "banner" },
-          { "label": "Large", "value": "largeBanner" },
-          { "label": "Medium Rectangle", "value": "mediumRectangle" }
+          {
+            "label": "Standard",
+            "value": "banner"
+          },
+          {
+            "label": "Large",
+            "value": "largeBanner"
+          },
+          {
+            "label": "Medium Rectangle",
+            "value": "mediumRectangle"
+          }
         ]
       },
       "helpText": "Learn More about [Configuring the Admob Component](https://help.adalo.com/component-basics/google-admob)"
@@ -45,6 +54,13 @@
       "displayName": "AdMob Android Ad ID",
       "type": "text",
       "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
+    },
+    {
+      "name": "placeholder",
+      "displayName": "Show placeholder ad on web preview",
+      "type": "boolean",
+      "default": false,
+      "helpText": "See how this component fits the design of your app in the preview.  Disable to hide placeholder from Share URL and PWA."
     }
   ]
 }

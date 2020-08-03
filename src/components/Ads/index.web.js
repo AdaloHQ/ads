@@ -6,7 +6,7 @@ import recAd from "./adPics/recAd.png";
 
 class Ads extends Component {
   render() {
-    const { size } = this.props;
+    const { size, placeholder, editor } = this.props;
     let height = 250;
     let width = 300;
     let image = recAd;
@@ -33,9 +33,11 @@ class Ads extends Component {
       },
     };
     return (
-      <View style={realStyles.wrapper}>
-        <img style={realStyles.image} src={image} />
-      </View>
+      <div style={realStyles.wrapper}>
+        {(placeholder || editor) && (
+          <img style={realStyles.image} src={image} />
+        )}
+      </div>
     );
   }
 }
