@@ -8,6 +8,12 @@
   "resizeY": false,
   "props": [
     {
+      "name": "positioning",
+      "editable": false,
+      "type": "text",
+      "default": "fixedTop"
+    },
+    {
       "name": "size",
       "displayName": "Size",
       "type": "text",
