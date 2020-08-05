@@ -65,7 +65,7 @@
       "name": "placeholder",
       "displayName": "Show placeholder ad on web preview",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "helpText": "See how this component fits the design of your app in the preview.  Disable to hide placeholder from Share URL and PWA."
     }
   ]
