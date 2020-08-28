@@ -13,11 +13,15 @@ let fs = require("fs");
 let rawData = fs.readFileSync(project_path + "/proton-bundle.json");
 let protonBundle = JSON.parse(rawData);
 let appID;
-new JefNode(protonBundle).filter((node) => {
-  if (node.key == platform_id) {
-    appID = node.value;
-  }
-});
+appId = protonBundle.libraryGlobals["@adalo/ads"]["Ads"][platform_id];
+
+if (!appId) {
+  new JefNode(protonBundle).filter((node) => {
+    if (node.key == platform_id) {
+      appID = node.value;
+    }
+  });
+}
 let appIDFinal = appID.replace(/\s/g, "");
 console.log(appIDFinal);
 

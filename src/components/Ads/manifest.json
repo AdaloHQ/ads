@@ -32,28 +32,60 @@
       "helpText": "Learn More about [Configuring the Admob Component](https://help.adalo.com/component-basics/google-admob)"
     },
     {
+      "name": "iosAppIDGlobal",
+      "displayName": "AdMob iOS App ID",
+      "type": "text",
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
+      "global": true
+    },
+    {
+      "name": "iosAdIDGlobal",
+      "displayName": "AdMob iOS Ad ID",
+      "type": "text",
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
+      "global": true
+    },
+    {
+      "name": "andAppIDGlobal",
+      "displayName": "AdMob Android App ID",
+      "type": "text",
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
+      "global": true
+    },
+    {
+      "name": "andAdIDGlobal",
+      "displayName": "AdMob Android Ad ID",
+      "type": "text",
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
+      "global": true
+    },
+    {
       "name": "iosAppID",
       "displayName": "AdMob iOS App ID",
       "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX"
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
+      "hidden": true
     },
     {
       "name": "iosAdID",
       "displayName": "AdMob iOS Ad ID",
       "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
+      "hidden": true
     },
     {
       "name": "andAppID",
       "displayName": "AdMob Android App ID",
       "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX"
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
+      "hidden": true
     },
     {
       "name": "andAdID",
       "displayName": "AdMob Android Ad ID",
       "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
+      "hidden": true
     },
     {
       "name": "placeholder",
