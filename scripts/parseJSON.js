@@ -13,7 +13,8 @@ let fs = require("fs");
 let rawData = fs.readFileSync(project_path + "/proton-bundle.json");
 let protonBundle = JSON.parse(rawData);
 let appID;
-appId = protonBundle.libraryGlobals["@adalo/ads"]["Ads"][platform_id];
+appId =
+  protonBundle.libraryGlobals["@adalo/ads"]["Ads"][`${platform_id}Global`];
 
 if (!appId) {
   new JefNode(protonBundle).filter((node) => {

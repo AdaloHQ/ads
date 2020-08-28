@@ -39,24 +39,10 @@
       "global": true
     },
     {
-      "name": "iosAdIDGlobal",
-      "displayName": "AdMob iOS Ad ID",
-      "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
-      "global": true
-    },
-    {
       "name": "andAppIDGlobal",
       "displayName": "AdMob Android App ID",
       "type": "text",
       "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
-      "global": true
-    },
-    {
-      "name": "andAdIDGlobal",
-      "displayName": "AdMob Android Ad ID",
-      "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
       "global": true
     },
     {
