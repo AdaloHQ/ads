@@ -7,7 +7,6 @@ name=$PROJECT_NAME
 dir=$(dirname "${0}")
 
 # parseJSON.js
-yarn add json-easy-filter --dev
 appID=$(${dir}/parseJSON.js $project_path iosAppID)
 
 # AdMob Dependencies
