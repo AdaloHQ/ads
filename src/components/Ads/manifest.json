@@ -46,32 +46,16 @@
       "global": true
     },
     {
-      "name": "iosAppID",
-      "displayName": "AdMob iOS App ID",
-      "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
-      "hidden": true
-    },
-    {
       "name": "iosAdID",
       "displayName": "AdMob iOS Ad ID",
       "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
-      "hidden": true
-    },
-    {
-      "name": "andAppID",
-      "displayName": "AdMob Android App ID",
-      "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
-      "hidden": true
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
     },
     {
       "name": "andAdID",
       "displayName": "AdMob Android Ad ID",
       "type": "text",
-      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
-      "hidden": true
+      "placeholder": "ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX"
     },
     {
       "name": "placeholder",
