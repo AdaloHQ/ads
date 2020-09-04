@@ -32,10 +32,10 @@ let fs = require("fs");
 let rawData = fs.readFileSync(project_path + "/proton-bundle.json");
 let protonBundle = JSON.parse(rawData);
 let appID;
-appId =
+appID =
   protonBundle.libraryGlobals["@adalo/ads"]["Ads"][`${platform_id}Global`];
 
-if (appId) {
+if (appID) {
   let appIDFinal = appID.replace(/\s/g, "");
   console.log(appIDFinal);
 } else {
