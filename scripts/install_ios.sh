@@ -25,11 +25,15 @@ done
 # Podfile
 cd ios
 
-sed -i.bak '/use_native_modules/a\
-  pod "Google-Mobile-Ads-SDK" 
-' Podfile
-
-pod install --repo-update
+if ! grep -q "marketplace" "Podfile"; then
+  sed -i.bak '/marketplace/a\
+  \  pod "Google-Mobile-Ads-SDK" 
+  ' Podfile
+else
+  sed -i.bak '/RNCPushNotificationIOS/a\
+  \  pod "Google-Mobile-Ads-SDK" 
+  ' Podfile
+fi
 
 # AppDelegate.m
 cd $name
