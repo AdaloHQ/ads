@@ -18,7 +18,14 @@ unzip googlemobileadssdkios.zip
 for direct in */; do
   if [[ $direct = Google* ]];
   then
-    cp -R $direct/GoogleMobileAds.framework ios/GoogleMobileAds.framework
+    if [[ -d $(echo $direct/GoogleMobileAds.xcframework | tr -s /) ]]; then
+      echo "Moving XC Framework into the correct folder."
+      cp -R $(echo $direct/GoogleMobileAds.xcframework | tr -s /) ios/GoogleMobileAds.xcframework
+    fi;
+    if [[ -d "$(echo $direct/GoogleMobileAds.framework | tr -s /)" ]]; then
+      echo "Moving Framework into the correct folder."
+      cp -R $(echo $direct/GoogleMobileAds.framework | tr -s /) ios/GoogleMobileAds.framework
+    fi;
   fi;
 done
 
