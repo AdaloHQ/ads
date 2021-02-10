@@ -1,6 +1,6 @@
 {
   "name": "@adalo/ads",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "author": "Adalo",
   "license": "MIT",
   "main": "index.js",
@@ -29,7 +29,8 @@
       }
     ],
     "iosInstallScript": "./scripts/install_ios.sh",
-    "androidInstallScript": "./scripts/install_android.sh"
+    "androidInstallScript": "./scripts/install_android.sh",
+    "skipDependencyCheck": true
   },
   "devDependencies": {
     "@adalo/cli": "^0.0.39",
