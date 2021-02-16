@@ -27,7 +27,7 @@ const Ads = props => {
     )
   }
 
-  const [adID, setAdId] = useState('')
+  const [adID, setAdID] = useState('')
 
   useEffect(() => {
     if (Platform.OS === 'ios') {
@@ -35,7 +35,7 @@ const Ads = props => {
     } else if (Platform.OS === 'android') {
       if (andAdID) setAdId(andAdID.replace(/\s/g, ''))
     }
-  }, [iosAdID, andAdID])
+  }, [Platform.OS, iosAdID, andAdID])
 
   return (
     <View style={styles.wrapper}>
