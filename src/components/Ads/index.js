@@ -1,49 +1,49 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, Platform } from 'react-native'
 import { AdMobBanner } from 'react-native-admob'
 
-class Ads extends Component {
-  render() {
-    let {
-      iosAdID,
-      andAdID,
-      size,
-      iosAppIDGlobal,
-      iosAppID,
-      andAppIDGlobal,
-      andAppID,
-    } = this.props
+const Ads = props => {
+  let {
+    iosAdID,
+    andAdID,
+    size,
+    iosAppIDGlobal,
+    iosAppID,
+    andAppIDGlobal,
+    andAppID,
+  } = props
 
-    if (
-      (Platform.OS === 'ios' && (!iosAppIDGlobal || !iosAppID)) ||
-      (Platform.OS === 'android' && (!andAppIDGlobal || !andAppID))
-    ) {
-      const platformPretty = Platform.OS === 'ios' ? 'iOS' : 'Android'
-      return (
-        <View style={styles.errorView}>
-          <Text style={styles.errorText}>
-            Component Setup Incomplete. {platformPretty} App ID was left blank.
-          </Text>
-        </View>
-      )
-    }
-    let adId
-    if (Platform.OS === 'ios') {
-      adId = iosAdID
-    } else {
-      adId = andAdID
-    }
-    adID = iosAdID.replace(/\s/g, '')
+  if (
+    (Platform.OS === 'ios' && (!iosAppIDGlobal || !iosAppID)) ||
+    (Platform.OS === 'android' && (!andAppIDGlobal || !andAppID))
+  ) {
+    const platformPretty = Platform.OS === 'ios' ? 'iOS' : 'Android'
     return (
-      <View style={styles.wrapper}>
-        <AdMobBanner
-          adSize={size}
-          adUnitID={adID}
-          onAdFailedToLoad={error => console.error(error)}
-        />
+      <View style={styles.errorView}>
+        <Text style={styles.errorText}>
+          Component Setup Incomplete. {platformPretty} App ID was left blank.
+        </Text>
       </View>
     )
   }
+
+  const [adID, setAdId] = useState(
+    (Platform.OS === 'ios' ? iosAdID : andAdID).replace(/\s/g, '')
+  )
+
+  useEffect(() => {
+    setAdId((Platform.OS === 'ios' ? iosAdID : andAdID).replace(/\s/g, ''))
+  }, [Platform.OS === 'ios' ? iosAdID : andAdID])
+
+  return (
+    <View style={styles.wrapper}>
+      <AdMobBanner
+        adSize={size}
+        adUnitID={adID}
+        onAdFailedToLoad={error => console.error(error)}
+      />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
