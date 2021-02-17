@@ -14,8 +14,8 @@ const Ads = props => {
   } = props
 
   if (
-    (Platform.OS === 'ios' && (!iosAppIDGlobal || !iosAppID)) ||
-    (Platform.OS === 'android' && (!andAppIDGlobal || !andAppID))
+    (Platform.OS === 'ios' && !(iosAppIDGlobal || iosAppID)) ||
+    (Platform.OS === 'android' && !(andAppIDGlobal || andAppID))
   ) {
     const platformPretty = Platform.OS === 'ios' ? 'iOS' : 'Android'
     return (
@@ -31,9 +31,9 @@ const Ads = props => {
 
   useEffect(() => {
     if (Platform.OS === 'ios') {
-      if (iosAdID) setAdId(iosAdID.replace(/\s/g, ''))
+      if (iosAdID) setAdID(iosAdID.replace(/\s/g, ''))
     } else if (Platform.OS === 'android') {
-      if (andAdID) setAdId(andAdID.replace(/\s/g, ''))
+      if (andAdID) setAdID(andAdID.replace(/\s/g, ''))
     }
   }, [Platform.OS, iosAdID, andAdID])
 
