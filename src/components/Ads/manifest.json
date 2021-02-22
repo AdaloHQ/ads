@@ -26,6 +26,10 @@
           {
             "label": "Medium Rectangle",
             "value": "mediumRectangle"
+          },
+          {
+            "label": "Interstitial",
+            "value": "interstitial"
           }
         ]
       },
