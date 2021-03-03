@@ -30,40 +30,53 @@ const Ads = props => {
   const [adID, setAdID] = useState('')
 
   useEffect(() => {
+    let adIdLocal
     if (Platform.OS === 'ios') {
-      if (iosAdID) setAdID(iosAdID.replace(/\s/g, ''))
+      if (iosAdID) {
+        adIdLocal = iosAdID.replace(/\s/g, '')
+        if (size === 'interstitial') {
+          console.log('setting ad id')
+          setAdID(adIdLocal)
+        }
+      }
     } else if (Platform.OS === 'android') {
-      if (andAdID) setAdID(andAdID.replace(/\s/g, ''))
+      if (andAdID) {
+        let adIdLocal = andAdID.replace(/\s/g, '')
+        if (size === 'interstitial') {
+          setAdID(adIdLocal)
+        }
+      }
     }
   }, [Platform.OS, iosAdID, andAdID])
-  console.log('adID', adID)
+
   useEffect(() => {
-    AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId])
-    AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/4411468910')
+    if (size === 'interstitial') {
+      AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId])
 
-    AdMobInterstitial.addEventListener('adLoaded', () =>
-      console.log('AdMobInterstitial adLoaded')
-    )
-    AdMobInterstitial.addEventListener('adFailedToLoad', error =>
-      console.warn(error)
-    )
-    AdMobInterstitial.addEventListener('adOpened', () =>
-      console.log('AdMobInterstitial => adOpened')
-    )
-    AdMobInterstitial.addEventListener('adClosed', () => {
-      console.log('AdMobInterstitial => adClosed')
+      AdMobInterstitial.addEventListener('adLoaded', () =>
+        console.log('AdMobInterstitial adLoaded')
+      )
+      AdMobInterstitial.addEventListener('adFailedToLoad', error =>
+        console.warn('Ad failed to load! Error:', error)
+      )
+      AdMobInterstitial.addEventListener('adOpened', () =>
+        console.log('AdMobInterstitial => adOpened')
+      )
+      AdMobInterstitial.addEventListener('adClosed', () => {
+        console.log('AdMobInterstitial => adClosed')
+        AdMobInterstitial.requestAd().catch(error => console.warn(error))
+      })
+      AdMobInterstitial.addEventListener('adLeftApplication', () =>
+        console.log('AdMobInterstitial => adLeftApplication')
+      )
+
       AdMobInterstitial.requestAd().catch(error => console.warn(error))
-    })
-    AdMobInterstitial.addEventListener('adLeftApplication', () =>
-      console.log('AdMobInterstitial => adLeftApplication')
-    )
-
-    AdMobInterstitial.requestAd().catch(error => console.warn(error))
-    return function cleanup() {
-      AdMobInterstitial.removeAllListeners()
-      console.log('ad gone?')
+      return function cleanup() {
+        AdMobInterstitial.removeAllListeners()
+        console.log('ad gone?')
+      }
     }
-  }, [])
+  }, [size])
 
   //AdMobInterstitial.setAdUnitID(adID)
   //AdMobInterstitial.requestAd().then(() => AdMobInterstitial.showAd())
