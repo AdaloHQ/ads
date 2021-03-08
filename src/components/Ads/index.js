@@ -34,20 +34,32 @@ const Ads = props => {
     if (Platform.OS === 'ios') {
       if (iosAdID) {
         adIdLocal = iosAdID.replace(/\s/g, '')
+        setAdID(adIdLocal)
         if (size === 'interstitial') {
-          console.log('setting ad id')
-          setAdID(adIdLocal)
+          showInterstitial(adIdLocal)
         }
       }
     } else if (Platform.OS === 'android') {
       if (andAdID) {
         let adIdLocal = andAdID.replace(/\s/g, '')
+        setAdID(adIdLocal)
         if (size === 'interstitial') {
-          setAdID(adIdLocal)
+          showInterstitial(adIdLocal)
         }
       }
     }
   }, [Platform.OS, iosAdID, andAdID])
+
+  const showInterstitial = adIdLocal => {
+    AdMobInterstitial.setAdUnitID(adIdLocal)
+    AdMobInterstitial.requestAd()
+      .then(() => {
+        AdMobInterstitial.showAd().catch(error =>
+          console.warn(error + ' error showing ad')
+        )
+      })
+      .catch(error => console.warn(error + ' ERROR REQUESTING AD'))
+  }
 
   useEffect(() => {
     if (size === 'interstitial') {
@@ -57,20 +69,18 @@ const Ads = props => {
         console.log('AdMobInterstitial adLoaded')
       )
       AdMobInterstitial.addEventListener('adFailedToLoad', error =>
-        console.warn('Ad failed to load! Error:', error)
+        console.warn('Ad failed to load!', error)
       )
       AdMobInterstitial.addEventListener('adOpened', () =>
         console.log('AdMobInterstitial => adOpened')
       )
       AdMobInterstitial.addEventListener('adClosed', () => {
         console.log('AdMobInterstitial => adClosed')
-        AdMobInterstitial.requestAd().catch(error => console.warn(error))
       })
       AdMobInterstitial.addEventListener('adLeftApplication', () =>
         console.log('AdMobInterstitial => adLeftApplication')
       )
 
-      AdMobInterstitial.requestAd().catch(error => console.warn(error))
       return function cleanup() {
         AdMobInterstitial.removeAllListeners()
         console.log('ad gone?')
@@ -78,18 +88,15 @@ const Ads = props => {
     }
   }, [size])
 
-  //AdMobInterstitial.setAdUnitID(adID)
-  //AdMobInterstitial.requestAd().then(() => AdMobInterstitial.showAd())
-  useEffect(() => {
-    AdMobInterstitial.showAd().catch(error => console.warn(error + ' oh boy'))
-  })
   return (
     <View style={styles.wrapper}>
-      {/* <AdMobBanner
-        adSize={size}
-        adUnitID={adID}
-        onAdFailedToLoad={error => console.error(error)}
-      /> */}
+      {size !== 'interstitial' && (
+        <AdMobBanner
+          adSize={size}
+          adUnitID={adID}
+          onAdFailedToLoad={error => console.error(error)}
+        />
+      )}
     </View>
   )
 }
