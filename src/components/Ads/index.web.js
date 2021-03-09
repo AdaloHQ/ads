@@ -19,7 +19,7 @@ class Ads extends Component {
       width = 320
       image = largeAd
     } else if (size == 'interstitial') {
-      height = 500
+      height = 600
       width = 375
       image = interAd
     }
@@ -36,6 +36,7 @@ class Ads extends Component {
         width: width,
       },
     }
+
     return (
       <div style={realStyles.wrapper}>
         {(placeholder || editor) && (

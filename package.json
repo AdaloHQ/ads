@@ -33,7 +33,7 @@
     "skipDependencyCheck": true
   },
   "devDependencies": {
-    "@adalo/cli": "^0.0.39",
+    "@adalo/cli": "^0.0.41",
     "react": "^16.5.2",
     "react-art": "^16.6.0",
     "react-dom": "^16.5.2",
