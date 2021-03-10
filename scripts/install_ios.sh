@@ -9,6 +9,11 @@ dir=$(dirname "${0}")
 # parseJSON.js
 appID=$(${dir}/parseJSON.js $project_path iosAppID)
 
+# If App ID doesn't exist, silently fail. Error message will show on the component.
+if [ -z "$appID" ]; then
+  exit 0;
+fi
+
 # AdMob Dependencies
 yarn add react-native-admob@^2.0.0-beta.6
 
