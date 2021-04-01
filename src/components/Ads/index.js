@@ -29,6 +29,10 @@ const Ads = props => {
 
   const [adID, setAdID] = useState('')
 
+  const logError = error => {
+    console.error('Error loading ad!:', error)
+  }
+
   useEffect(() => {
     let adIdLocal
     if (Platform.OS === 'ios') {
@@ -58,7 +62,10 @@ const Ads = props => {
           console.warn(error + ' error showing ad')
         )
       })
-      .catch(error => console.warn(error + ' ERROR REQUESTING AD'))
+      .catch(error => {
+        console.warn(error + ' ERROR REQUESTING AD')
+        logError(error)
+      })
   }
 
   useEffect(() => {
@@ -68,9 +75,10 @@ const Ads = props => {
       AdMobInterstitial.addEventListener('adLoaded', () =>
         console.log('AdMobInterstitial adLoaded')
       )
-      AdMobInterstitial.addEventListener('adFailedToLoad', error =>
+      AdMobInterstitial.addEventListener('adFailedToLoad', error => {
         console.warn('Ad failed to load!', error)
-      )
+        logError(error)
+      })
       AdMobInterstitial.addEventListener('adOpened', () =>
         console.log('AdMobInterstitial => adOpened')
       )
