@@ -27,6 +27,10 @@ const Ads = props => {
     )
   }
 
+  const logError = error => {
+    console.error('Error loading ad!', error)
+  }
+
   const [adID, setAdID] = useState('')
 
   useEffect(() => {
@@ -39,11 +43,14 @@ const Ads = props => {
 
   return (
     <View style={styles.wrapper}>
-      <AdMobBanner
-        adSize={size}
-        adUnitID={adID}
-        onAdFailedToLoad={error => console.error(error)}
-      />
+      {!!adID && (
+        <AdMobBanner
+          adSize={size}
+          adUnitID={adID}
+          onAdFailedToLoad={error => logError(error)}
+          testDevices={[AdMobBanner.simulatorId]}
+        />
+      )}
     </View>
   )
 }
