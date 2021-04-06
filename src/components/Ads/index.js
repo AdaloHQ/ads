@@ -27,10 +27,6 @@ const Ads = props => {
     )
   }
 
-  const logError = error => {
-    console.error('Error loading ad!', error)
-  }
-
   const [adID, setAdID] = useState('')
 
   const logError = error => {
