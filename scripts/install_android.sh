@@ -13,7 +13,7 @@ if [ -z "$appID" ]; then
 fi
 
 # AdMob Dependencies
-yarn add react-native-admob@^2.0.0-beta.6
+yarn add react-native-admob@https://github.com/AdaloHQ/react-native-admob.git
 
 # build.gradle
 cd android/app
