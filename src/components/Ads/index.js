@@ -27,6 +27,10 @@ const Ads = props => {
     )
   }
 
+  const logError = error => {
+    console.error('Error loading ad!', error)
+  }
+
   const [adID, setAdID] = useState('')
 
   const logError = error => {
@@ -98,11 +102,12 @@ const Ads = props => {
 
   return (
     <View style={styles.wrapper}>
-      {size !== 'interstitial' && (
+      {size !== 'interstitial' && !!adID && (
         <AdMobBanner
           adSize={size}
           adUnitID={adID}
-          onAdFailedToLoad={error => console.error(error)}
+          onAdFailedToLoad={error => logError(error)}
+          testDevices={[AdMobBanner.simulatorId]}
         />
       )}
     </View>

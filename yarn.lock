@@ -4630,7 +4630,7 @@ prompt@^1.0.0:
     utile "0.3.x"
     winston "2.1.x"
 
-prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4791,12 +4791,11 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-admob@^2.0.0-beta.6:
+"react-native-admob@https://github.com/AdaloHQ/react-native-admob.git":
   version "2.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/react-native-admob/-/react-native-admob-2.0.0-beta.6.tgz#ef6f8986a13f323d076fd4fcb9a617fe3809331e"
-  integrity sha512-Tzk1N5c6so/Dj58q51uqWkd5i/X5a/cgLNYczng78hRGroRxU6Av2lMlwxZK2RFFtFxUhfpg2xNN2bhEqCydDA==
+  resolved "https://github.com/AdaloHQ/react-native-admob.git#220d80bd6666d84a4b94b6de3188118d00c53054"
   dependencies:
-    prop-types "^15.5.10"
+    prop-types "^15.7.2"
 
 react-native-web@^0.9.5:
   version "0.9.13"
