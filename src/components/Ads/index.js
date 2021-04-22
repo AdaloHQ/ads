@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, Platform } from 'react-native'
-import { AdMobBanner } from 'react-native-admob'
+import { AdMobBanner, AdMobInterstitial } from 'react-native-admob'
 
 const Ads = props => {
   let {
@@ -27,23 +27,78 @@ const Ads = props => {
     )
   }
 
-  const logError = error => {
-    console.error('Error loading ad!', error)
-  }
-
   const [adID, setAdID] = useState('')
 
+  const logError = error => {
+    console.error('Error loading ad!:', error)
+  }
+
   useEffect(() => {
+    let adIdLocal
     if (Platform.OS === 'ios') {
-      if (iosAdID) setAdID(iosAdID.replace(/\s/g, ''))
+      if (iosAdID) {
+        adIdLocal = iosAdID.replace(/\s/g, '')
+        setAdID(adIdLocal)
+        if (size === 'interstitial') {
+          showInterstitial(adIdLocal)
+        }
+      }
     } else if (Platform.OS === 'android') {
-      if (andAdID) setAdID(andAdID.replace(/\s/g, ''))
+      if (andAdID) {
+        let adIdLocal = andAdID.replace(/\s/g, '')
+        setAdID(adIdLocal)
+        if (size === 'interstitial') {
+          showInterstitial(adIdLocal)
+        }
+      }
     }
   }, [Platform.OS, iosAdID, andAdID])
 
+  const showInterstitial = adIdLocal => {
+    AdMobInterstitial.setAdUnitID(adIdLocal)
+    AdMobInterstitial.requestAd()
+      .then(() => {
+        AdMobInterstitial.showAd().catch(error =>
+          console.warn(error + ' error showing ad')
+        )
+      })
+      .catch(error => {
+        console.warn(error + ' ERROR REQUESTING AD')
+        logError(error)
+      })
+  }
+
+  useEffect(() => {
+    if (size === 'interstitial') {
+      AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId])
+
+      AdMobInterstitial.addEventListener('adLoaded', () =>
+        console.log('AdMobInterstitial adLoaded')
+      )
+      AdMobInterstitial.addEventListener('adFailedToLoad', error => {
+        console.warn('Ad failed to load!', error)
+        logError(error)
+      })
+      AdMobInterstitial.addEventListener('adOpened', () =>
+        console.log('AdMobInterstitial => adOpened')
+      )
+      AdMobInterstitial.addEventListener('adClosed', () => {
+        console.log('AdMobInterstitial => adClosed')
+      })
+      AdMobInterstitial.addEventListener('adLeftApplication', () =>
+        console.log('AdMobInterstitial => adLeftApplication')
+      )
+
+      return function cleanup() {
+        AdMobInterstitial.removeAllListeners()
+        console.log('ad gone?')
+      }
+    }
+  }, [size])
+
   return (
     <View style={styles.wrapper}>
-      {!!adID && (
+      {size !== 'interstitial' && !!adID && (
         <AdMobBanner
           adSize={size}
           adUnitID={adID}
