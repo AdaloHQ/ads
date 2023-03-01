@@ -20,7 +20,7 @@ cd android/app
 
 sed -i.bak '/dependencies {/a\
 implementation "com.android.support:multidex:1.0.3"\
-implementation "com.google.android.gms:play-services-ads:19.6.0"\
+implementation "com.google.android.gms:play-services-ads:21.5.0"\
 implementation "com.google.android.gms:play-services-base:17.5.0"\
 implementation "com.google.firebase:firebase-core:18.0.0"\
 implementation "com.google.firebase:firebase-messaging:21.0.0"\
