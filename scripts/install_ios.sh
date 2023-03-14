@@ -39,11 +39,11 @@ cd ios
 
 if ! grep -q "marketplace" "Podfile"; then
   sed -i.bak '/marketplace/a\
-  \  pod "Google-Mobile-Ads-SDK", "~> 9.14.0"
+  \  pod "Google-Mobile-Ads-SDK", "~> 7.64.0"
   ' Podfile
 else
   sed -i.bak '/RNCPushNotificationIOS/a\
-  \  pod "Google-Mobile-Ads-SDK", "~> 9.14.0"
+  \  pod "Google-Mobile-Ads-SDK", "~> 7.64.0"
   ' Podfile
 fi
 
