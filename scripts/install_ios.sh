@@ -18,8 +18,8 @@ fi
 yarn add react-native-admob@https://github.com/AdaloHQ/react-native-admob.git
 
 # Frameworks
-curl https://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip -O -J -L
-unzip googlemobileadssdkios.zip
+curl "https://dl.google.com/dl/cpdc/7adc882ba6ea0623/Google-Mobile-Ads-SDK-7.69.0.tar.gz" -O -J -L
+tar -xvzf "Google-Mobile-Ads-SDK-7.69.0.tar.gz"
 for direct in */; do
   if [[ $direct = Google* ]];
   then
@@ -39,11 +39,11 @@ cd ios
 
 if ! grep -q "marketplace" "Podfile"; then
   sed -i.bak '/marketplace/a\
-  \  pod "Google-Mobile-Ads-SDK", "~> 7.64.0"
+  \  pod "Google-Mobile-Ads-SDK", "~> 7.69.0"
   ' Podfile
 else
   sed -i.bak '/RNCPushNotificationIOS/a\
-  \  pod "Google-Mobile-Ads-SDK", "~> 7.64.0"
+  \  pod "Google-Mobile-Ads-SDK", "~> 7.69.0"
   ' Podfile
 fi
 
