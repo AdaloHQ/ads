@@ -1,6 +1,6 @@
 {
   "name": "@adalo/ads",
-  "version": "1.4.7",
+  "version": "2.0.0",
   "author": "Adalo",
   "license": "MIT",
   "main": "index.js",
@@ -33,14 +33,13 @@
     "skipDependencyCheck": true
   },
   "devDependencies": {
-    "@adalo/cli": "^0.0.41",
+    "@adalo/cli": "^0.0.55",
     "react": "^16.5.2",
     "react-art": "^16.6.0",
     "react-dom": "^16.5.2",
     "react-native-web": "^0.9.5"
   },
   "dependencies": {
-    "json-easy-filter": "^0.3.1",
-    "react-native-admob": "https://github.com/AdaloHQ/react-native-admob.git"
+    "react-native-google-mobile-ads": "^10.0.0"
   }
 }
