@@ -15,5 +15,7 @@ fi
 
 sed -i.bak 's/^{/{\
   "react-native-google-mobile-ads": {\
-    "android_app_id": "'$appId'"\
+    "android_app_id": "'$appID'"\
   },'/g $project_path/app.json
+
+  echo "Successfully installed Adalo Ads"
