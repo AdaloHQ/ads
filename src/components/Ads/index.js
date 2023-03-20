@@ -4,6 +4,7 @@ import mobileAds, {
   InterstitialAd,
   BannerAd,
   BannerAdSize,
+  AdEventType,
 } from 'react-native-google-mobile-ads'
 
 const sizesMap = {
@@ -44,13 +45,17 @@ const Ads = props => {
 
   const [initializing, setInitializing] = useState(false)
   const [initialized, setInitialized] = useState(false)
-  
+
   const loadInterstitial = () => {
     if (size !== 'interstitial') return
 
     const interstitial = InterstitialAd.createForAdRequest(adId, {
       requestNonPersonalizedAdsOnly: true,
     })
+    const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+      interstitial.show()
+      unsubscribe()
+    });
     interstitial.load()
   }
 
