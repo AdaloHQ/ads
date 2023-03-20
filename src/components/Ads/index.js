@@ -44,14 +44,27 @@ const Ads = props => {
 
   const [initializing, setInitializing] = useState(false)
   const [initialized, setInitialized] = useState(false)
+  
+  const loadInterstitial = () => {
+    if (size !== 'interstitial') return
 
-  useEffect(async () => {
+    const interstitial = InterstitialAd.createForAdRequest(adId, {
+      requestNonPersonalizedAdsOnly: true,
+    })
+    interstitial.load()
+  }
+
+  useEffect(() => {
     if (initializing || initialized) return
 
     setInitializing(true)
-    const adapterStatuses = await mobileAds().initialize()
-    console.log(adapterStatuses)
-    setInitialized(true)
+    mobileAds()
+      .initialize()
+      .then(adapterStatuses => {
+        console.log(adapterStatuses)
+        setInitialized(true)
+        loadInterstitial()
+      })
   })
 
   if (!initialized) {
@@ -61,15 +74,6 @@ const Ads = props => {
       </View>
     )
   }
-
-  useEffect(() => {
-    if (size !== 'interstitial') return
-
-    const interstitial = InterstitialAd.createForAdRequest(adId, {
-      requestNonPersonalizedAdsOnly: true,
-    })
-    interstitial.load()
-  })
 
   return (
     <View style={styles.wrapper}>

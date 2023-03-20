@@ -7,7 +7,7 @@ name=$PROJECT_NAME
 dir=$(dirname "${0}")
 
 # parseJSON.js
-appID=$(${dir}/parseJSON.js $project_path iosAppID)
+appID=$(${dir}/parseJSON.js $project_path iosAppIDGlobal)
 
 # If App ID doesn't exist, silently fail. Error message will show on the component.
 if [ -z "$appID" ]; then

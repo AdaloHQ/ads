@@ -1,6 +1,6 @@
 {
   "name": "@adalo/ads",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Adalo",
   "license": "MIT",
   "main": "index.js",
@@ -18,19 +18,6 @@
     "react": ">=16",
     "react-dom": ">=16",
     "react-native": "*"
-  },
-  "adalo": {
-    "logo": "./AdMob-logo.png",
-    "displayName": "AdMob Banner",
-    "components": [
-      {
-        "name": "Ads",
-        "manifest": "./src/components/Ads/manifest.json"
-      }
-    ],
-    "iosInstallScript": "./scripts/install_ios.sh",
-    "androidInstallScript": "./scripts/install_android.sh",
-    "skipDependencyCheck": true
   },
   "devDependencies": {
     "@adalo/cli": "^0.0.55",
