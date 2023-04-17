@@ -3,22 +3,22 @@
 const projectPath = process.cwd()
 
 const protonBundle = require(projectPath + '/proton-bundle.json')
-const { andAppIDGlobal, iosAppIDGlobal } =
-  protonBundle.libraryGlobals['@adalo/ads']?.Ads
+let { andAppIDGlobal, iosAppIDGlobal } =
+  protonBundle.libraryGlobals['@adalo/ads']?.Ads || {}
 
 if (!andAppIDGlobal) {
   console.log(
     `Could not find andAppIDGlobal in ${projectPath}/proton-bundle.json`
   )
+  // if left blank, builds do not go through
+  andAppIDGlobal = 'ca-app-pub-1111111111111111~1111111111'
 }
 if (!iosAppIDGlobal) {
   console.log(
     `Could not find iosAppIDGlobal in ${projectPath}/proton-bundle.json`
   )
-}
-// silently fail. Error will be shown in component
-if (!andAppIDGlobal && !iosAppIDGlobal) {
-  process.exit(0)
+  // if left blank, builds do not go through
+  iosAppIDGlobal = 'ca-app-pub-1111111111111111~1111111111'
 }
 
 const appJson = require(`${projectPath}/app.json`)

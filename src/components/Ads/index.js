@@ -14,16 +14,21 @@ const sizesMap = {
   interstitial: null,
 }
 
+const isAppIdSet = appId => appId && appId !== 'ca-app-pub-1111111111111111~1111111111'
+
 const Ads = props => {
   let { iosAdID, andAdID, iosAppIDGlobal, andAppIDGlobal, size } = props
 
   const isAndroid = Platform.OS === 'android'
 
-  if ((!isAndroid && !iosAppIDGlobal) || (isAndroid && !andAppIDGlobal)) {
+  if (
+    (!isAndroid && !isAppIdSet(iosAppIDGlobal)) ||
+    (isAndroid && !isAppIdSet(andAppIDGlobal))
+  ) {
     return (
       <View style={styles.errorView}>
         <Text style={styles.errorText}>
-          Component Setup Incomplete. {isAndroid ? 'Android' : 'iOS'} App ID was
+          AdMob Banner Setup Incomplete. {isAndroid ? 'Android' : 'iOS'} App ID was
           left blank.
         </Text>
       </View>
@@ -34,7 +39,7 @@ const Ads = props => {
     return (
       <View style={styles.errorView}>
         <Text style={styles.errorText}>
-          Component Setup Incomplete. {isAndroid ? 'Android' : 'iOS'} Ad ID was
+          AdMob Banner Setup Incomplete. {isAndroid ? 'Android' : 'iOS'} Ad ID was
           left blank.
         </Text>
       </View>
@@ -52,10 +57,13 @@ const Ads = props => {
     const interstitial = InterstitialAd.createForAdRequest(adId, {
       requestNonPersonalizedAdsOnly: true,
     })
-    const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
-      interstitial.show()
-      unsubscribe()
-    });
+    const unsubscribe = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        interstitial.show()
+        unsubscribe()
+      }
+    )
     interstitial.load()
   }
 
