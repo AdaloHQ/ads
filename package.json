@@ -27,6 +27,6 @@
     "react-native-web": "^0.9.5"
   },
   "dependencies": {
-    "react-native-google-mobile-ads": "^10.0.0"
+    "react-native-google-mobile-ads": "10.0.0"
   }
 }
