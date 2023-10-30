@@ -1,6 +1,6 @@
 {
   "name": "@adalo/ads",
-  "version": "2.0.10",
+  "version": "2.0.13",
   "author": "Adalo",
   "license": "MIT",
   "main": "index.js",
@@ -20,13 +20,13 @@
     "react-native": "*"
   },
   "devDependencies": {
-    "@adalo/cli": "^0.0.55",
-    "react": "^16.5.2",
-    "react-art": "^16.6.0",
-    "react-dom": "^16.5.2",
+    "@adalo/cli": "^0.0.57",
+    "react": "^16.13.1",
+    "react-art": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-native-web": "^0.9.5"
   },
   "dependencies": {
-    "react-native-google-mobile-ads": "^10.0.0"
+    "react-native-google-mobile-ads": "12.2.0"
   }
 }
