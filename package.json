@@ -1,6 +1,6 @@
 {
   "name": "@adalo/ads",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "author": "Adalo",
   "license": "MIT",
   "main": "index.js",
@@ -27,6 +27,6 @@
     "react-native-web": "^0.9.5"
   },
   "dependencies": {
-    "react-native-google-mobile-ads": "12.2.0"
+    "react-native-google-mobile-ads": "13.0.2"
   }
 }
