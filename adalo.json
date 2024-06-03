@@ -9,6 +9,6 @@
       "manifest": "./src/components/Ads/manifest.json"
     }
   ],
-  "iosInstallScript": "./scripts/install_ads.js",
-  "androidInstallScript": "./scripts/install_ads.js"
+  "iosInstallScript": "./scripts/installAds.ts",
+  "androidInstallScript": "./scripts/installAds.ts"
 }
