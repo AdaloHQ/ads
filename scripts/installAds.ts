@@ -16,7 +16,10 @@ const readJsonFile = async (path: string) => {
 const getAppIdGlobal = async () => {
   try {
     const protonBundlePath = join(projectPath, 'proton-bundle.json')
-    const protonBundle = await readJsonFile(protonBundlePath)
+    const { default: protonBundle } = await import(protonBundlePath, {
+      with: { type: 'json' },
+    })
+
     const ads = protonBundle.libraryGlobals['@adalo/ads']?.Ads ?? {}
     let { andAppIDGlobal, iosAppIDGlobal } = ads
 
